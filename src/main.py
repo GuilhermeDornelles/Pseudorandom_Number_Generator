@@ -7,15 +7,12 @@ def main():
     sns.set_style("darkgrid")
     plt.figure(figsize=(10, 10))
 
-    # DataFrame.add()
-
     total_number = 1000
 
-    seed: int = 7  # X0
-    multiplier: int = 400  # a
-    increment: int = 400  # c
-    # module: int = 5465486464684684068468068  # M
-    module = 9999
+    seed: int = 1  # X0
+    multiplier: int = 6000  # a
+    increment: int = 4000  # c
+    module: int = 999999999  # M
 
     current_number = seed
 
@@ -24,10 +21,9 @@ def main():
     for i in range(total_number):
         current_number = randomize(
             a=multiplier, x=current_number, c=increment, m=module)
-        numbers_list.append(current_number)
-        # numbers_list.append(dict(x = i, n=current_number))
+        numbers_list.append(current_number/module)
 
-    print(f'Final list. Count: {len(numbers_list)}')
+    # print(f'Final list. Count: {len(numbers_list)}')
 
     for number in range(len(numbers_list)):
         print(f'{number} | {numbers_list[number]}')
